@@ -1,9 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@android:style/Theme.NoTitleBar"
+    android:background="@drawable/fon"
     tools:context=".registration">
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="183dp"
+        app:srcCompat="@drawable/foodfreelogo"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+    <TextView
 
-</android.support.constraint.ConstraintLayout>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registration"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="30dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="167dp" />
+
+    <EditText
+        android:id="@+id/regmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Your mail"
+        android:inputType="textEmailAddress"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="231dp" />
+
+    <EditText
+        android:id="@+id/pass1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Your Password"
+        android:inputType="numberPassword"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="304dp" />
+
+    <EditText
+        android:id="@+id/conf_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Confirm password"
+        android:inputType="numberPassword"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="378dp" />
+
+    <Button
+        android:id="@+id/btnreg"
+        android:layout_width="168dp"
+        android:layout_height="48dp"
+        android:text="Log in"
+        android:background="@drawable/rounded"
+        android:textColor="@android:color/white"
+        android:textSize="30dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="460dp" />
+
+
+
+</TableLayout>

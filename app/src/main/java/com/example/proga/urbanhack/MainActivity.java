@@ -1,12 +1,16 @@
 package com.example.proga.urbanhack;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
     private Button log , reg;
@@ -15,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final ArrayList<String> userPpassword = loadArrayList("userPpassword"); // загружаем
+        final ArrayList<String> userMail = loadArrayList("userMail"); // загружаем
 
         log = (Button)findViewById(R.id.log);
         reg = (Button)findViewById(R.id.registr);
@@ -37,17 +43,46 @@ public class MainActivity extends AppCompatActivity {
                 if (in_pass.length()<8){
                     Toast.makeText(getApplicationContext(),"Write your password more then 7 symbols",Toast.LENGTH_LONG).show();
                 }
-                if (in_mail == "magnit@mail.com" && in_pass == "12345678"){
-                    Intent adminintent = new Intent(MainActivity.this, admin_base.class);
-                    startActivity(adminintent);
-                }
                 else{
-                    Intent userintent = new Intent(MainActivity.this, user_base.class);
-                    startActivity(userintent);
+                    int index = userMail.indexOf(mail.getText().toString());
+                    if (index >= 0) {
+                        if (pass.getText().toString().equals(userPpassword.get(index))) {
+                            Intent userintent = new Intent(MainActivity.this, base.class);
+                            startActivity(userintent);
+                        }
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), "Вы не зарегистрированы", Toast.LENGTH_LONG).show();}
                 }
+            }
+        });
+        reg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent regintent = new Intent(MainActivity.this,registration.class);
+                startActivity(regintent);
             }
         });
 
 
+    }
+
+    //------------------
+    // сохраняем
+    private void saveArrayList(String name, ArrayList<String> list) {
+        SharedPreferences prefs = getSharedPreferences("myPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        StringBuilder sb = new StringBuilder();
+        for (String s : list) sb.append(s).append("<s>");
+        if (list.size() > 0) sb.delete(sb.length() - 3, sb.length());
+        editor.putString(name, sb.toString()).apply();
+    }
+    // загружаем
+    private ArrayList<String> loadArrayList(String name) {
+        SharedPreferences prefs = getSharedPreferences("myPrefs", MODE_PRIVATE);
+        String[] strings = prefs.getString(name, "").split("<s>");
+        ArrayList<String> list = new ArrayList<>();
+        list.addAll(Arrays.asList(strings));
+        return list;
     }
 }

@@ -4,65 +4,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/fon"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
 
+    tools:context=".MainActivity">
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="175dp"
+        android:layout_height="272dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/foodfreelogo" />
     <TextView
         android:layout_width="match_parent"
-        android:textAlignment="center"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="185dp"
         android:text="Авторизация"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
         android:textSize="30dp"
-        android:textColor="@android:color/black"
-        android:layout_marginTop="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="84dp"
-        android:text="Почта"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="20dp"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="75dp" />
-
     <EditText
         android:id="@+id/in_mail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="164dp"
-        android:hint="Your mail"
+        android:layout_centerInParent="true"
         android:ems="10"
+        android:hint="Your mail"
         android:inputType="textEmailAddress" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="260dp"
-        android:text="Пароль"
-        android:textAlignment="center"
-        android:textSize="20dp"
-        android:textColor="@android:color/black" />
     <EditText
         android:id="@+id/in_pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:hint="Your password"
-        android:layout_marginBottom="281dp"
+        android:layout_marginBottom="175dp"
         android:ems="10"
+        android:hint="Your password"
         android:inputType="textPassword" />
 
     <Button
@@ -70,10 +54,12 @@
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="186dp"
-        android:text="Log in"
-        android:background="@android:color/holo_blue_dark"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="125dp"
+        android:textColor="@android:color/white"
+        android:textSize="30dp"
+        android:background="@drawable/rounded"
+        android:text="Log in" />
 
     <Button
         android:id="@+id/registr"
@@ -81,8 +67,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="95dp"
-        android:text="Registration"
-        android:background="@android:color/holo_blue_dark"/>
+        android:layout_marginBottom="53dp"
+        android:textColor="@android:color/white"
+        android:textSize="30dp"
+        android:background="@drawable/rounded"
+        android:text="Registration" />
+
+
 
 </RelativeLayout>
